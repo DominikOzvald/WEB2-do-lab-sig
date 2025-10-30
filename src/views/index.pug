@@ -1,0 +1,28 @@
+html 
+    body
+        h1 Drugi Projekt 
+        hr
+        h2 SQL umetanje (SQL Injection)
+        div(class="sql-injection")
+            p <b>Upute:</b> Ovo je primjer sql-ubacivanja, dohvaćaju se podaci o studentima koji imaju zadanu završnu ocjenu. Ako se na kraj unosa doda or 1=1 ispisat će se svi studenti uključujući i tajnog studenta s ocjenom 126 
+            form(action="",method="get")
+                div
+                    label(for="sql-input") Unesite završnu ocjenu
+                    input(type="text", name="sql-input",id="sql-input")
+                    input(type="button",id="btnSql",value="submit")
+                div
+                    label(for="sql-check") Isključi ranjivost
+                    input(type="checkbox",name="sql-check",id="sql-check")
+            div(class="student-container")
+                
+        hr
+        h2 Lažiranje zahtjeva na drugom sjedištu (Cross Site Request Forgery, CSRF)
+        div(class="CSRF")
+            form(action="",method="get")
+                div
+                    label(for="CSRF-check") Isključi ranjivost
+                    input(type="checkbox",name="CSRF-check",id="CSRF-check")
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+        script 
+            include ../public/js/index.js  
+   
