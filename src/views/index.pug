@@ -17,11 +17,49 @@ html
                 
         hr
         h2 Lažiranje zahtjeva na drugom sjedištu (Cross Site Request Forgery, CSRF)
+       
         div(class="CSRF")
-            form(action="",method="get")
-                div
-                    label(for="CSRF-check") Isključi ranjivost
-                    input(type="checkbox",name="CSRF-check",id="CSRF-check")
+            p(id="show-username") #{username ? username : ""}
+            div(class ="visible-logged-out",id="login-form", hidden = username ? true : false )
+                form(action="",method="post")
+                    div
+                        label(for="CSRF-login-username") username 
+                        input(class="cleanable-value",type="text",name="login-username",id="CSRF-login-username")
+                    div 
+                        label(for="CSRf-login-password") password 
+                        input(class="cleanable-value",type="password",name="login-password",id="CSRf-login-password")
+                    div 
+                        input(type="button",id="btn-CSRF-login",value="login")
+            div(id="warning",hidden,style="color: red")
+                p Invalid credentials
+            div(class ="visible-logged-in",id="change-password-form",hidden = username ? false : true)
+                form(action="",method="get")
+                    div
+                        label(for="CSRF-change-password") enter password 
+                        input(class="cleanable-value",type="password",name="change-password",id="CSRF-change-password")
+                    div 
+                        label(for="CSRF-change-control-password") repeat password 
+                        input(class="cleanable-value",type="password",name="change-control-password",id="CSRF-change-control-password")
+                    div 
+                        input(type="button",id="btn-CSRF-change",value="change")
+                    p(id="change-password-status",style="color: orange")
+                    div(hidden)
+                        input(class="cleanable-value",type="text",id="CSRF-token-input",value=token) 
+            div(class ="visible-logged-in", id="verify-credentials-from",hidden = username ? false : true)
+                form(action="",method="post")
+                    div 
+                        label(for="CSRF-verify-password") enter password to see if it is valid
+                        input(class="cleanable-value",type="password",id="CSRF-verify-password")
+                        input(type="button",id="btn-verify-password",value="check")
+                    div 
+                        p(id="password-verify-status")
+            div(class ="visible-logged-in",id="logout-from",hidden = username ? false : true)
+                form(action="",method="post")
+                    input(type="button",id="btn-CSRF-logout",value="logout")
+            
+            div(id="CSRF-toggle-form")
+                form(action="CSRF/toggle",method="post")
+                    input(type="button",name="btnCSRF",id="btnCSRF",value = (isCSRFSafe ? "Uključi ranjivost":"Isključi ranjivost"))
         script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
         script 
             include ../public/js/index.js  

@@ -7,14 +7,18 @@
 		"start": "node dist/webapp.js"
 	},
 	"dependencies": {
+		"cookie-parser": "^1.4.7",
 		"dotenv": "^17.2.3",
 		"express": "^5.1.0",
+		"express-session": "^1.18.2",
 		"http": "^0.0.1-security",
 		"pg": "^8.16.3",
 		"pug": "^3.0.3"
 	},
 	"devDependencies": {
+		"@types/cookie-parser": "^1.4.10",
 		"@types/express": "^5.0.3",
+		"@types/express-session": "^1.18.2",
 		"@types/node": "^24.7.2",
 		"@types/pg": "^8.15.5",
 		"shx": "^0.4.0"
