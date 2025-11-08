@@ -19,6 +19,11 @@ html
         h2 Lažiranje zahtjeva na drugom sjedištu (Cross Site Request Forgery, CSRF)
        
         div(class="CSRF")
+            p <b>Upute:</b>Ovo je primjer Lažiranja zahtjeva na drugom sjedištu. Prvo je potrebno prijaviti se s korisničkim imenom <b>FerWeb2</b> i lozinkom <b>123</b>
+            p Nakon prijave potrebno je kliknuti na zlonamjerni link koji mijenja lozinku prijavljenog korisnika na <b>12345</b>
+            p Ispravnost lozinke se može provjerit za trenutačno prijavljenog korisnika 
+            p Nakon provjere lozinke promijenite lozinku na neku različitu od 12345 isključite ranjivost i ponovno kliknite na zlonamjerni link ovoga puta lozinka ostaje ne promijenjena
+            p Zlonamjerni link se nalazi nalazi u README.md datoteci javno dostupnog git repozitorija s izvornim kodom <a href="https://github.com/DominikOzvald/WEB2-do-lab-sig.git">https://github.com/DominikOzvald/WEB2-do-lab-sig.git</a>
             p(id="show-username") #{username ? username : ""}
             div(class ="visible-logged-out",id="login-form", hidden = username ? true : false )
                 form(action="",method="post")
